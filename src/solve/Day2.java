@@ -19,7 +19,7 @@ class Day2 {
         public Box(String boxStr) {
             String[] dimsStr = boxStr.split("x");
             for (String dimStr : dimsStr) {
-                dimensions.add(Integer.parseInt(dimStr));
+                dimensions.add(Integer.parseInt(dimStr)  );
             }
             Collections.sort(dimensions);
         }

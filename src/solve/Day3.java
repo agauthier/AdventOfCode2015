@@ -10,7 +10,7 @@ import tools.Utils;
 import static tools.Utils.FAILED;
 import static tools.Utils.SUCCESS;
 
-//@SuppressWarnings("unused")
+@SuppressWarnings("unused")
 class Day3 {
 
     enum Direction {
