@@ -25,6 +25,10 @@ class Day5 {
     }
 
     static String solveB() {
-        return (1 == 0 ? SUCCESS : FAILED) + "";
+        List<String> lines = new ArrayList<>(fileLines);
+        Pattern pairMatch = Pattern.compile(".*([a-z]{2}).*\\1.*");
+        Pattern repeatingLetterMatch = Pattern.compile(".*([a-z]).\\1.*");
+        lines.removeIf(line -> !pairMatch.matcher(line).matches() || !repeatingLetterMatch.matcher(line).matches());
+        return (lines.size() == 51 ? SUCCESS : FAILED) + "Number of nice strings: " + lines.size();
     }
 }
