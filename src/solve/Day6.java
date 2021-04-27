@@ -11,6 +11,7 @@ import static tools.Utils.SUCCESS;
 class Day6 {
 
     private static class Instruction {
+
         private enum Op {
             TURN_ON("on") {
                 @Override void executeWrong(int[][] lights, int x, int y) { lights[y][x] = 1; }

@@ -18,7 +18,7 @@ public class Problems {
 
     private static void solveAll() {
         float totalTime = 0;
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 7; i++) {
             Result resultA = solve(i, "A");
             Result resultB = solve(i, "B");
             System.out.println(resultA);
