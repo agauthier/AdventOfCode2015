@@ -7,16 +7,33 @@ import tools.Utils;
 import static tools.Utils.FAILED;
 import static tools.Utils.SUCCESS;
 
-//@SuppressWarnings("unused")
+@SuppressWarnings("unused")
 class Day8 {
 
-    private static final List<String> fileLines = Utils.readFile("day7.txt");
+    private static final List<String> fileLines = Utils.readFile("day8.txt");
 
     static String solveA() {
-        return (1 == 0 ? SUCCESS : FAILED) + "";
+        int charDiffCount = 0;
+        for (String line : fileLines) {
+            String[] tokens = line.split("\\\\x[0-9a-f]{2}|\\\\\"|\\\\\\\\");
+            int memCount = -3;
+            for (String token : tokens) {
+                memCount += token.length() + 1;
+            }
+            charDiffCount += line.length();
+            charDiffCount -= memCount;
+        }
+        return (charDiffCount == 1350 ? SUCCESS : FAILED) + "The character diff count is: " + charDiffCount;
     }
 
     static String solveB() {
-        return (1 == 0 ? SUCCESS : FAILED) + "";
+        int charDiffCount = 0;
+        for (String line : fileLines) {
+            charDiffCount -= line.length();
+            String newLine = line.replaceAll("\\\\", "\\\\\\\\");
+            newLine = newLine.replaceAll("\"", "\\\\\\\"");
+            charDiffCount += newLine.length() + 2;
+        }
+        return (charDiffCount == 2085 ? SUCCESS : FAILED) + "The character diff count is: " + charDiffCount;
     }
 }
